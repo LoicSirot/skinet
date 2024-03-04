@@ -103,3 +103,17 @@ You can now push it up to the selected repository:
 git push -u origin main
 ```
 If you are using VSCode, then after creating the gitignore file, you can just stage the changes, add a comment and click on Commit.  
+
+### Section 3 - API Architecture
+In the precedent section we have created a Migration, we are going to drop the existing database, but we need to specify the project:
+```
+dotnet ef database drop -p Infrastructure -s API
+```
+Now, we will remove the existing Migration, again we need to specify the project:
+```
+dotnet ef migrations remove -p Infrastructure -s API
+```
+We going to create now the migration again:
+```
+dotnet ef migrations add InitialCreate -p Infrastructure -s API -o Data/Migrations
+```
